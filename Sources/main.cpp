@@ -45,6 +45,7 @@
 #include "mainwindow.h"
 #include "CommonObjects.h"
 #include "glimageeditor.h"
+#include "glextensions.h"
 #include "allaboutdialog.h"
 
 #ifdef USE_OPENGL_330
@@ -118,6 +119,15 @@ bool checkOpenGL(){
 
     QGLContext* glContext = (QGLContext *) glWidget->context();
     GLCHK( glContext->makeCurrent() );
+
+    // Check if all the necessary functions are resolved.
+    if (!getGLExtensionFunctions().resolve(glContext)) {
+        QMessageBox::critical(0, "OpenGL features missing",
+            "Failed to resolve OpenGL functions required to run this demo.\n"
+            "The program will now exit.");
+//        delete widget;
+        return false;
+    }	
 
     int glMajorVersion, glMinorVersion;
 

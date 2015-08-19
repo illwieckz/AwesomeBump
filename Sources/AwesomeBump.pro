@@ -36,6 +36,7 @@ HEADERS = glwidget.h \
     utils/qglbuffers.h \
     dialoglogger.h \
     glwidgetbase.h \
+    glextensions.h \
     formbasemapconversionlevels.h \
     formmaterialindicesmanager.h \
     dialogshortcuts.h \
@@ -57,6 +58,7 @@ SOURCES = glwidget.cpp \
     utils/qglbuffers.cpp \
     dialoglogger.cpp \
     glwidgetbase.cpp \
+    glextensions.cpp \
     formbasemapconversionlevels.cpp \
     formmaterialindicesmanager.cpp \
     dialogshortcuts.cpp \
